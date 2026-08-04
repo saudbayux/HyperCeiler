@@ -9,12 +9,19 @@ jobs:
         with:
           fetch-depth: 0
           submodules: true
+
+      # 赋予gradlew执行权限，解决exit code 126
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
       - uses: actions/setup-java@v4
         with:
           java-version: '21'
           distribution: 'temurin'
-      - uses: gradle/actions/setup-gradle@v3
-      - run: ./gradlew assembleDebug
+
+      - name: Build Debug APK
+        run: ./gradlew assembleDebug
+
       - uses: actions/upload-artifact@v4
         with:
           name: HyperCeiler-Debug
