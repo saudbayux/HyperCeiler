@@ -4,13 +4,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      GIT_ACTOR: ${{ shturl.cc/Cx }}
+      GIT_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           submodules: true
 
-      # 赋予gradlew执行权限，解决exit code 126
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
