@@ -5,7 +5,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      GIT_ACTOR: ${{ shturl.cc/Cx }}
+      GIT_ACTOR: ${{ shturl.cc/8a }}
       GIT_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v4
